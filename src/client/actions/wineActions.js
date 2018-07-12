@@ -4,37 +4,42 @@ function fetchWines() {
   return function(dispatch) {
     return wineService.getWines()
       .then(({ wines }) => {
-        const vintageYearsArray = [];
-
-        wines.forEach((wine) => {
-          vintageYearsArray.push(wine.vintage);
-        });
-
-        // Remove any duplicate vintage years
-        const dedupVintageYears = [ ...new Set(vintageYearsArray)];
+        // sort the wines alphabetically
+        wines.sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase()));
         dispatch({
           type: 'FETCH_WINES_SUCCESS',
           payload: {
-            wines,
-            allWines: wines,
-            vintageYears: dedupVintageYears
+            wines
           }
         });
       });
   };
 }
 
-function updateWines(wines, vintageYears) {
+function addWine(wines) {
   return function(dispatch) {
+    // sort the wines alphabetically
+    wines.sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase()));
     dispatch({
-      type: 'UPDATE_WINES',
+      type: 'ADD_WINE',
       payload: {
-        wines,
-        vintageYears
+        wines
       }
     });
   };
 }
+
+function deleteWine(wines) {
+  return function(dispatch) {
+    dispatch({
+      type: 'DELETE_WINE',
+      payload: {
+        wines
+      }
+    });
+  };
+}
+
 export {
-  fetchWines, updateWines
+  fetchWines, addWine, deleteWine
 };

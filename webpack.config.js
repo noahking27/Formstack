@@ -4,7 +4,7 @@ const path = require('path');
 
 module.exports = {
   resolve: {
-    extensions: ['.js', '.jsx', '.json']
+    extensions: ['.js', '.jsx', '.json', '.less']
   },
   entry: {
     bundle: './src/client/index.jsx'
@@ -75,4 +75,3 @@ module.exports = {
     })
   ]
 };
-

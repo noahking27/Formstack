@@ -1,20 +1,20 @@
 const INITIAL_STATE = {
-  wines: [],
-  vintageYears: []
+  wines: []
 };
 
 const reducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
   case 'FETCH_WINES_SUCCESS':
     return Object.assign({}, state, {
-      allWines: action.payload.allWines,
-      wines: action.payload.wines,
-      vintageYears: action.payload.vintageYears
+      wines: action.payload.wines
     });
-  case 'UPDATE_WINES':
+  case 'ADD_WINE':
     return Object.assign({}, state, {
-      wines: action.payload.wines,
-      vintageYears: action.payload.vintageYears
+      wines: action.payload.wines
+    });
+  case 'DELETE_WINE':
+    return Object.assign({}, state, {
+      wines: action.payload.wines
     });
   default:
     return state;
