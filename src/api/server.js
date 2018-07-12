@@ -1,7 +1,6 @@
 const express = require('express');
 const app = express();
-// Set up our port to be either the host's designated port, or 3000
-var PORT = process.env.PORT || 3000;
+
 const winesRouter = express.Router();
 
 const data = require('./wines.json');
@@ -12,6 +11,6 @@ winesRouter.get('/wines', function(req, res) {
 
 app.use('/api/v1', winesRouter);
 
-app.listen(PORT, function() {
+app.listen(3000, function() {
   console.log('App listening on port 3000');
 });
