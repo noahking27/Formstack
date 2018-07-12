@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
     fontWeight: '500'
   },
   sider: {
-    marginTop: '50px',
+    // marginTop: '50px',
     background: '#fff',
     height: '65vh',
     overflowY: 'auto'
@@ -206,16 +206,13 @@ displayWineList(wines) {
   }
 
     render = () => {
-      console.log("PROPS ", this.props)
-      console.log("STATE ", this.state)
-
       return (
         <div id="wineDiv">
-          <Row type="flex" justify="start">
+          <Row type="flex" justify="center">
             <Col sm={24} md={12} lg={12}>
               {this.displayWineList(this.props.wines)}
             </Col>
-            <Col sm={24} md={10} lg={12}>
+            <Col sm={24} md={10} lg={12} push={1}>
               <div>
                 <h1>Selected Wine:</h1>
                 <h3 id="wineSelected">{this.state.wineSelected}</h3>

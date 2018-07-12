@@ -14,8 +14,8 @@ beforeAll(async () => {
     // dumpio: true,
 
     // To see the UI test run, uncomment the headless and slowMo options:
-    headless: false,
-    slowMo: 40,
+    // headless: false,
+    // slowMo: 40,
 
     args: [`--window-size=${width},${height}`, '--no-sandbox'],
     ignoreHTTPSErrors: true,
